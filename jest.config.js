@@ -2,7 +2,7 @@
 const config = {
   testMatch: ['**/tests/**/*.test.[jt]s?(x)'],
 
-  setupFiles: ['fake-indexeddb/auto', 'C:/Dicoding/restaurant/jest.setup.js'],
+  setupFiles: ['fake-indexeddb/auto', './jest.setup.js'],
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
