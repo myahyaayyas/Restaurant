@@ -543,6 +543,7 @@ form button {
   font-size: 18px;
   color: white;
   cursor: pointer;
+  z-index: 1000;
 }
 
 /* 
