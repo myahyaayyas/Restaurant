@@ -85,6 +85,11 @@ textarea {
   width: 100%;
 }
 
+.app-bar .app-bar__navigation ul li a.active,
+.app-bar .app-bar__navigation ul li a:hover {
+  color: orange;
+}
+
 .skip-link {
   position: absolute;
   top: -100px;
@@ -112,6 +117,10 @@ main #mainContent {
 .content {
   margin: 0 auto;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .content .content__heading {
@@ -161,10 +170,39 @@ main #mainContent {
 */
 
 .restaurant {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
   margin: 32px 0;
+}
+
+/* 
+  detail restaurant 
+*/
+
+.restaurant-detail-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-container {
+  flex: 1;
+  max-width: 50%;
+  margin-right: 20px;
+}
+
+.text-container {
+  flex: 1;
+  max-width: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+.view-more-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /*
@@ -259,6 +297,7 @@ main #mainContent {
   max-width: 1200px;
   height: auto;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .review-card {
@@ -306,6 +345,106 @@ main #mainContent {
 }
 
 /* 
+  menu restaurant
+*/
+
+.app-bar__menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.app-bar__menu button {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  background-color: #2980b9;
+  border-radius: 5px;
+}
+
+.app-bar__menu button.active {
+  background-color: #3498db;
+}
+
+.app-bar__menu button:hover {
+  background-color: #3498db;
+}
+
+.app-bar__menu button:active {
+  background-color: #1f618d;
+}
+
+.menu-list {
+  overflow-x: hidden;
+  white-space: nowrap;
+  display: flex;
+  gap: 16px;
+}
+
+.food-menu,
+.drink-menu {
+  flex-shrink: 0;
+  margin-right: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.food-menu ul,
+.drink-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.food-menu::-webkit-scrollbar,
+.drink-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.food-menu li,
+.drink-menu li {
+  min-width: 120px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list .scrollable-menu {
+  overflow-x: auto;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.menu-list .scrollable-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.menu-list .scrollable-menu::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.menu-list .scrollable-menu::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.drink-menu.hidden {
+  display: none;
+}
+
+/* 
   form
 */
 
@@ -323,22 +462,64 @@ form {
 
 form div {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 form label {
-  width: 45%;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+  color: black;
+  font-weight: bold;
 }
 
 form input,
 form textarea {
-  width: 50%;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ffc107;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 form button {
   align-self: flex-start;
+}
+
+.add-review-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-review-form button:hover {
+  background-color: #ffca28;
+}
+
+.review-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review-item {
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.review-item:hover {
+  transform: scale(1.05);
 }
 
 /*
@@ -367,6 +548,7 @@ form button {
 /* 
   search-bar
 */
+
 .search-bar h1 {
   text-align: center;
 }

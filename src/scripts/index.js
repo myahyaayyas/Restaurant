@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable new-cap */
 import 'regenerator-runtime';
 import '../styles/style.css';
@@ -15,21 +16,43 @@ const initializeApp = async () => {
     content: document.querySelector('#mainContent'),
   });
 
+  const handleViewMoreClick = (event) => {
+    const viewMoreBtn = event.target.closest('.view-more-btn');
+    if (viewMoreBtn) {
+      const descriptionPreview = viewMoreBtn.previousElementSibling;
+      const fullDescription = viewMoreBtn.nextElementSibling;
+
+      descriptionPreview.classList.toggle('hidden');
+      fullDescription.classList.toggle('hidden');
+      viewMoreBtn.style.display = 'none';
+    }
+  };
+
+  document.addEventListener('click', handleViewMoreClick);
+
+  const setActiveLink = () => {
+    const currentPage = window.location.hash;
+    const links = document.querySelectorAll('.app-bar__navigation ul li a');
+
+    links.forEach((link) => {
+      const linkPath = link.getAttribute('href').slice(1);
+      if (currentPage === `#${linkPath}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+
   window.addEventListener('hashchange', () => {
     app.renderPage();
+    setActiveLink();
   });
 
   window.addEventListener('load', () => {
     app.renderPage();
     swRegister.default();
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const skipLinkElem = document.querySelector('.skip-link');
-    skipLinkElem.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.querySelector('#mainContent').focus();
-    });
+    setActiveLink();
   });
 };
 

@@ -67,6 +67,25 @@ const Detail = {
       await RestaurantDbSource.addReview(restaurant.id, reviewerName, reviewContent);
       await this.afterRender();
     });
+
+    const foodMenuBtn = document.getElementById('foodMenuBtn');
+    const drinkMenuBtn = document.getElementById('drinkMenuBtn');
+    const foodMenu = document.querySelector('.food-menu');
+    const drinkMenu = document.querySelector('.drink-menu');
+
+    foodMenuBtn.addEventListener('click', () => {
+      foodMenu.classList.remove('hidden');
+      drinkMenu.classList.add('hidden');
+      foodMenuBtn.classList.add('active');
+      drinkMenuBtn.classList.remove('active');
+    });
+
+    drinkMenuBtn.addEventListener('click', () => {
+      drinkMenu.classList.remove('hidden');
+      foodMenu.classList.add('hidden');
+      drinkMenuBtn.classList.add('active');
+      foodMenuBtn.classList.remove('active');
+    });
   },
 };
 
