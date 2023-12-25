@@ -15,7 +15,7 @@ const DaftarRestaurant = {
         </div>
       </div>
       <div class="content">
-        <h2 class="content__heading">Daftar Restaurant</h2>
+        <h2 class="content__heading" style="font-weight: bold;">Daftar Restaurant</h2>
         <div id="restaurant" class="restaurant">
         </div>
       </div>

@@ -15,7 +15,7 @@ const Like = {
         </div>
       </div>
       <div class="content">
-        <h2 class="content__heading">Favorite Restaurant</h2>
+        <h2 class="content__heading" style="font-weight: bold;">Favorite Restaurant</h2>
         <div id="restaurant" class="restaurant"> 
         </div>
       </div>

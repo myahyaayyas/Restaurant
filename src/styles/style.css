@@ -127,6 +127,10 @@ main #mainContent {
   font-weight: normal;
 }
 
+.content__heading {
+  margin: 2em;
+}
+
 /* 
   hero 
 */
@@ -169,9 +173,9 @@ main #mainContent {
   restaurants
 */
 
-.restaurant {
-  margin: 32px 0;
-}
+/* .restaurant {
+  padding: 5px;
+} */
 
 /* 
   detail restaurant 
@@ -347,6 +351,21 @@ main #mainContent {
 /* 
   menu restaurant
 */
+.app-bar__menus {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.app-bar__menus button {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
 
 .app-bar__menu {
   display: flex;
@@ -359,7 +378,7 @@ main #mainContent {
   padding: 10px;
   cursor: pointer;
   font-size: 16px;
-  color: #fff;
+  color: #ffffff;
   background-color: #2980b9;
   border-radius: 5px;
 }
@@ -478,7 +497,7 @@ form input,
 form textarea {
   width: 100%;
   padding: 10px;
-  border: 2px solid #ffc107;
+  border: 2px solid;
   border-radius: 10px;
   box-sizing: border-box;
   margin-bottom: 10px;
@@ -486,12 +505,13 @@ form textarea {
 
 form button {
   align-self: flex-start;
+
 }
 
 .add-review-form button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #ffc107;
+  background-color: #2980b9;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -499,7 +519,7 @@ form button {
 }
 
 .add-review-form button:hover {
-  background-color: #ffca28;
+  background-color: #3498db;
 }
 
 .review-card {

@@ -24,6 +24,10 @@
     flex-direction: column;
   }
 
+  .restaurant-item {
+    width: 100%;
+  }
+
   .image-container,
   .text-container {
     max-width: 100%;
@@ -42,7 +46,7 @@
     font-size: 1.5em;
   }
 
-  .app-bar .app-bar__menu {
+  .app-bar .app-bar__menus {
     display: none;
   }
 
